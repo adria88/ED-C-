@@ -12,7 +12,8 @@
  */
 
 #include "BinarySearchTree.h"
-
+using namespace std;
+#include <iostream>
 BinarySearchTree::BinarySearchTree() {
     root= new Position();
 }
@@ -21,5 +22,13 @@ BinarySearchTree::BinarySearchTree(const BinarySearchTree& orig) {
 }
 
 BinarySearchTree::~BinarySearchTree() {
+}
+
+BinarySearchTree::root(){
+    return root;
+}
+
+BinarySearchTree::empty(){
+    return (root->parent()==NULL);
 }
 
