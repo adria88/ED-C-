@@ -14,8 +14,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>BinarySearchTree.cpp</itemPath>
-      <itemPath>Position.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -39,12 +37,17 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <cTool>
+          <standard>10</standard>
+        </cTool>
+        <ccTool>
+          <standard>8</standard>
+          <incDir>
+            <pElem>.dep.inc</pElem>
+          </incDir>
+        </ccTool>
       </compileType>
-      <item path="BinarySearchTree.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="BinarySearchTree.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Position.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Position.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -71,11 +74,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="BinarySearchTree.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="BinarySearchTree.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Position.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Position.h" ex="false" tool="3" flavor2="0">
       </item>

@@ -97,3 +97,4 @@ template<class E>
 bool Position<E>::isExternal(){//si no té fills és node extern
     return((leftElem ==NULL)&&(rightElem==NULL));
 }
+#endif
