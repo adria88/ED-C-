@@ -1,25 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   main.cpp
- * Author: adria
- *
- * Created on 21 de abril de 2016, 21:00
+ * Fitxer: main.cpp
+ * Autors: Adrià Martí i Josep Núñez
  */
 
 #include <cstdlib>
-
+#include "Position.h"
+#include<iostream>
 using namespace std;
 
-/*
- * 
- */
 int main(int argc, char** argv) {
 
-    return 0;
+    Position<string> pos=Position<string>();
+    pos.setElement("hola");
+    Position<string> pos2=Position<string>();
+    pos2.setParent(&pos);
+    pos2.setElement("adeu");
+            
+    cout<<pos.getElement()<<endl;
+    cout<<pos2.parent()->getElement()<<endl;
+    cout<<pos2.getElement()<<endl;
+    
 }
-
