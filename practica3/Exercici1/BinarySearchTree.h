@@ -7,7 +7,7 @@
 #define BINARYSEARCHTREE_H
 #include "Position.h"
 #include <iostream>
-
+using namespace std;
 template<class E>
 class BinarySearchTree {
 public:
@@ -86,18 +86,18 @@ void BinarySearchTree<E>::insert(Position<E>* rootAux, Position<E>* nou) {
     if (this->empty()) {
         this->rootElem = nou;
     } else {
-        if (rootAux->getElement() < nou->getElement()) {
+        if (nou->getElement()< rootAux->getElement()) {
             if (!rootAux->hasLeft()) {
-                rootAux->setLeft(&nou);
-                nou->setParent(&rootAux);
+                rootAux->setLeft(nou);
+                nou->setParent(rootAux);
             } else {
                 insert(rootAux->left(), nou);
             }
 
-        } else if (rootAux->getElement() > nou->getElement()) {
+        } else if (nou->getElement()>rootAux->getElement()) {
             if (!(rootAux->hasRight())) {
-                rootAux->setRight(&nou);
-                nou->setParent(&rootAux);
+                rootAux->setRight(nou);
+                nou->setParent(rootAux);
             } else {
                 insert(rootAux->right(), nou);
             }
@@ -107,36 +107,40 @@ void BinarySearchTree<E>::insert(Position<E>* rootAux, Position<E>* nou) {
 
 template<class E>
 void BinarySearchTree<E>::insert(Position<E>* nou) {
-    insert(rootElem, nou);
+    this->insert(rootElem, nou);
 }
 
 template<class E>
-void BinarySearchTree<E>::search(E paraula, Position<E>* pos) {
+bool BinarySearchTree<E>::search(E paraula, Position<E>* pos) {
     if (paraula == pos->getElement()) {//si la paraula es igual a la del parent
         return true;
     } else if (paraula < pos->getElement()) {//si la paraula es menor a la del parent
         if (pos->hasLeft()) {
             this->search(paraula, pos->left()); //recursiva al node esquerre
         }
-
-
+        else{
+            return false;
+        }
     } else if (paraula > pos->getElement()) {//si la paraula es major que la del parent
         if (pos->hasRight()) {
             this->search(paraula, pos->right()); //recursiva al node fill dret
+        }
+        else{
+            return false;
         }
     } else {
         return false;//no trobada
     }
 }
 template<class E>
-void BinarySearchTree<E>::search(E paraula){
-    this->search(paraula,rootElem);
+bool BinarySearchTree<E>::search(E paraula){
+    return this->search(paraula,rootElem);
 }
 
 template<class E>
 void BinarySearchTree<E>::preOrder(Position<E>* pos){
     if(pos !=NULL){//si el node no es null
-        cout<<pos->getElement();//mostrar parent
+        cout<<pos->getElement()<<endl;//mostrar parent
         preOrder(pos->left());//recorregut arbre esquerre
         preOrder(pos->right());//recorregut arbre dret
     }
@@ -144,11 +148,12 @@ void BinarySearchTree<E>::preOrder(Position<E>* pos){
 
 template<class E>
 void BinarySearchTree<E>::printPreorder(){
-    this->inOrder(rootElem);
+    this->preOrder(rootElem);
 }
 
 template<class E>
 void BinarySearchTree<E>::inOrder(Position<E>* pos){
+    
     if(pos!=NULL){
         inOrder(pos->left());//recorrer arbre esquerre
         cout<<pos->getElement()<<endl;//mostrar parent
@@ -177,7 +182,7 @@ void BinarySearchTree<E>::printPostorder(){
 
 template<class E>
 int BinarySearchTree<E>::height(Position<E>* pos){
-    if(pos = NULL)
+    if(pos == NULL)
     {
         return 0;
     }
@@ -193,6 +198,10 @@ int BinarySearchTree<E>::height(Position<E>* pos){
         }
     }
     
+}
+template <class E>
+int BinarySearchTree<E>::height(){
+    return this->height(rootElem);
 }
 
 
