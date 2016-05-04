@@ -8,9 +8,19 @@
  * File:   BSTWordFinder.cpp
  * Author: adria
  * 
- * Created on 4 de mayo de 2016, 2:34
+ * Created on 4 de mayo de 2016, 12:37
  */
 
 #include "BSTWordFinder.h"
+#include "BinarySearchTree.h"
 
+BSTWordFinder::BSTWordFinder() {
+    bt = BinarySearchTree<std::string>();
+}
+
+BSTWordFinder::BSTWordFinder(const BSTWordFinder& orig) {
+}
+
+BSTWordFinder::~BSTWordFinder() {
+}
 

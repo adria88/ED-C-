@@ -6,7 +6,7 @@
 #ifndef POSITION_H
 #define POSITION_H
 #include<iostream>
-
+#include <vector>
 template<class E>
 class Position {
 public:
@@ -25,11 +25,14 @@ public:
     bool hasRight();
     E getElement();
     void setElement(E);
+    std::vector<int> getValors();
+    void setValors(int,int);
 private:
     Position<E>* parentElem;
     Position<E>* leftElem;
     Position<E>* rightElem;
-    E paraula;
+    std::vector<int> valors;
+    E key;
 };
 
 template<class E>
@@ -37,7 +40,9 @@ Position<E>::Position() {
     parentElem=NULL;
     leftElem=NULL;
     rightElem=NULL;
-    paraula="";
+    key="";
+    
+            
     
 }
 template<class E>
@@ -72,11 +77,20 @@ void Position<E>::setRight(Position<E>* r){
 }
 template<class E>
 E Position<E>::getElement(){
-    return paraula;
+    return key;
 }
 template<class E>
-void Position<E>::setElement(E p){
-    paraula=p;
+void Position<E>::setElement(E k){
+    key=k;
+}
+template<class E>
+std::vector<int> Position<E>::getValors(){
+    return valors;
+}
+template<class E>
+void Position<E>::setValors(int linea, int posicio){
+    valors.push_back(linea);
+    valors.push_back(posicio);
 }
 template<class E>
 bool Position<E>::isRoot(){//si el pare es null és el root

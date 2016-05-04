@@ -36,8 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/BSTWordFinder.o \
-	${OBJECTDIR}/BinarySearchTree.o \
-	${OBJECTDIR}/Position.o \
 	${OBJECTDIR}/main.o
 
 
@@ -69,16 +67,6 @@ ${OBJECTDIR}/BSTWordFinder.o: BSTWordFinder.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BSTWordFinder.o BSTWordFinder.cpp
-
-${OBJECTDIR}/BinarySearchTree.o: BinarySearchTree.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BinarySearchTree.o BinarySearchTree.cpp
-
-${OBJECTDIR}/Position.o: Position.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Position.o Position.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

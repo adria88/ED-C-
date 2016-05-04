@@ -16,8 +16,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>BSTWordFinder.cpp</itemPath>
-      <itemPath>BinarySearchTree.cpp</itemPath>
-      <itemPath>Position.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -46,11 +44,7 @@
       </item>
       <item path="BSTWordFinder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BinarySearchTree.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="BinarySearchTree.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Position.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Position.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -81,11 +75,7 @@
       </item>
       <item path="BSTWordFinder.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BinarySearchTree.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="BinarySearchTree.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Position.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Position.h" ex="false" tool="3" flavor2="0">
       </item>
