@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Fitxer: BSTWordFinder.cpp
+ * Autors: Adrià Martí i Josep Núñez
  */
 
-/* 
- * File:   BSTWordFinder.cpp
- * Author: adria
- * 
- * Created on 4 de mayo de 2016, 12:37
- */
 
 #include "BSTWordFinder.h"
 #include "BinarySearchTree.h"
+#include <fstream>
+#include <ctype.h>
+#include <iostream>
+#include <sstream>
 
 BSTWordFinder::BSTWordFinder() {
     bt = BinarySearchTree<std::string>();
@@ -24,3 +21,48 @@ BSTWordFinder::BSTWordFinder(const BSTWordFinder& orig) {
 BSTWordFinder::~BSTWordFinder() {
 }
 
+void BSTWordFinder::appendText(std::string f) {
+    ifstream fitxer;
+    std::string line;
+    std::string paraula;
+    int pos=1;
+    int nlinea = 1;
+    fitxer.open(f.c_str());
+    if (!fitxer.fail()) {
+        while (getline(fitxer,line)) { 
+            std::istringstream isstream(line);
+            while (isstream >> line)
+            {   
+                for(int i=0;i<line.length();i++){
+                    if(!std::ispunct(line[i])){
+                        line[i]=tolower(line[i]);
+                    }
+                    else{
+                        line[i]=' ';
+                    }       
+                }
+                bt.insert(line,nlinea,pos);
+                pos++;   
+            }
+            nlinea++;
+        }
+        fitxer.close();
+        
+    }
+
+
+
+}
+
+void BSTWordFinder::insertWord(std::string paraula,int linea, int posicio) {  
+    bt.insert(paraula,linea,posicio);   
+}
+
+std::vector<int> BSTWordFinder::findOcurrences(std::string paraula) {
+    return bt.search(paraula);
+    
+}
+
+void BSTWordFinder::viewIndex() {
+    bt.printInorder();
+}

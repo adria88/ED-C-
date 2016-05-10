@@ -7,6 +7,7 @@
 #define POSITION_H
 #include<iostream>
 #include <vector>
+#include "SenseValors.h"
 template<class E>
 class Position {
 public:
@@ -25,14 +26,14 @@ public:
     bool hasRight();
     E getElement();
     void setElement(E);
-    std::vector<int> getValors();
     void setValors(int,int);
+    std::vector<int> getValors();
 private:
     Position<E>* parentElem;
     Position<E>* leftElem;
     Position<E>* rightElem;
-    std::vector<int> valors;
     E key;
+    std::vector<int> valors;
 };
 
 template<class E>
@@ -40,10 +41,8 @@ Position<E>::Position() {
     parentElem=NULL;
     leftElem=NULL;
     rightElem=NULL;
-    key="";
-    
-            
-    
+    key=" ";
+    valors=std::vector<int>();
 }
 template<class E>
 Position<E>::Position(const Position& orig) {
@@ -80,16 +79,20 @@ E Position<E>::getElement(){
     return key;
 }
 template<class E>
-void Position<E>::setElement(E k){
-    key=k;
+void Position<E>::setElement(E p){
+    key=p;
 }
 template<class E>
 std::vector<int> Position<E>::getValors(){
-    return valors;
+    if (valors.size()== 0){
+       throw SenseValors("no hi ha valors");
+    }else{
+        return valors;
+    }
 }
 template<class E>
-void Position<E>::setValors(int linea, int posicio){
-    valors.push_back(linea);
+void Position<E>::setValors(int linia,int posicio){
+    valors.push_back(linia);
     valors.push_back(posicio);
 }
 template<class E>

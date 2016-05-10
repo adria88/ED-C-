@@ -1,5 +1,5 @@
 /* 
- * Fitxer: binarySearchTree.h
+ * Fitxer: BinarySearchTree.h
  * Autors: Adrià Martí i Josep Núñez
  */
 
@@ -17,8 +17,8 @@ public:
     int size();
     bool empty();
     Position<E>* root();
-    void insert(Position<E>*);
-    bool search(E);
+    void insert(E);
+    int search(E);
     void printPreorder();
     void printPostorder();
     void printInorder();
@@ -26,14 +26,14 @@ public:
    
 private:
     Position<E>* rootElem;
-    E elem;
     int size(Position<E>*);
     void insert(Position<E>*, Position<E>*);
-    bool search(E , Position<E>*);
+    int search(E , Position<E>*);
     void preOrder(Position<E>*);
     void postOrder(Position<E>*);
     void inOrder(Position<E>*);
     int height(Position<E>*);
+    void podar(Position<E>*);
     
 };
 
@@ -48,6 +48,21 @@ BinarySearchTree<E>::BinarySearchTree(const BinarySearchTree& orig) {
 
 template<class E>
 BinarySearchTree<E>::~BinarySearchTree() {
+    this->podar(rootElem);
+}
+
+template<class E>
+void BinarySearchTree<E>::podar(Position<E>* node) {
+    if (node->isExternal()){
+        delete(node);
+    }else{
+        if (node->hasLeft()){
+            podar(node->left());
+        }
+        if (node->hasRight()){
+            podar(node->right());
+        }
+    }
 }
 
 template<class E>
@@ -106,34 +121,35 @@ void BinarySearchTree<E>::insert(Position<E>* rootAux, Position<E>* nou) {
 }
 
 template<class E>
-void BinarySearchTree<E>::insert(Position<E>* nou) {
+void BinarySearchTree<E>::insert(E paraula) {
+    Position<E>* nou= new Position<std::string>();
+    nou->setElement(paraula);
     this->insert(rootElem, nou);
 }
 
 template<class E>
-bool BinarySearchTree<E>::search(E paraula, Position<E>* pos) {
+int BinarySearchTree<E>::search(E paraula, Position<E>* pos) {
     if (paraula == pos->getElement()) {//si la paraula es igual a la del parent
-        return true;
+        return 0;
     } else if (paraula < pos->getElement()) {//si la paraula es menor a la del parent
         if (pos->hasLeft()) {
             this->search(paraula, pos->left()); //recursiva al node esquerre
         }
         else{
-            return false;
+            return 1;
         }
     } else if (paraula > pos->getElement()) {//si la paraula es major que la del parent
         if (pos->hasRight()) {
             this->search(paraula, pos->right()); //recursiva al node fill dret
         }
         else{
-            return false;
+            return 1;
+            
         }
-    } else {
-        return false;//no trobada
     }
 }
 template<class E>
-bool BinarySearchTree<E>::search(E paraula){
+int BinarySearchTree<E>::search(E paraula){
     return this->search(paraula,rootElem);
 }
 

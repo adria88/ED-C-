@@ -1,25 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
- * File:   main.cpp
- * Author: adria
- *
- * Created on 4 de mayo de 2016, 0:23
+ * Fitxer: main.cpp
+ * Autors: Adrià Martí i Josep Núñez
  */
 
 #include <cstdlib>
-
+#include "BSTWordFinder.h"
 using namespace std;
+#include <iostream>
 
-/*
- * 
- */
 int main(int argc, char** argv) {
-
+    BSTWordFinder bst= BSTWordFinder();
+    bst.appendText("smallText.txt");
+    std::vector<int> vectorAux=vector<int>();
+    vectorAux=bst.findOcurrences("a");//no funciona
+    bst.viewIndex();
     return 0;
 }
 

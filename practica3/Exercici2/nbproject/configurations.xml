@@ -6,7 +6,9 @@
                    projectFiles="true">
       <itemPath>BSTWordFinder.h</itemPath>
       <itemPath>BinarySearchTree.h</itemPath>
+      <itemPath>Element.h</itemPath>
       <itemPath>Position.h</itemPath>
+      <itemPath>SenseValors.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,6 +18,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>BSTWordFinder.cpp</itemPath>
+      <itemPath>Element.cpp</itemPath>
+      <itemPath>SenseValors.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -46,7 +50,15 @@
       </item>
       <item path="BinarySearchTree.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Element.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Element.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Position.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SenseValors.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SenseValors.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -77,7 +89,15 @@
       </item>
       <item path="BinarySearchTree.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Element.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Element.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Position.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SenseValors.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SenseValors.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
