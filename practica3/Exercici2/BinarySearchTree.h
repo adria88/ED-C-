@@ -18,7 +18,7 @@ public:
     bool empty();
     Position<E>* root();
     void insert(E,int,int);
-    std::vector<int> search(E);
+    void search(E);
     void printPreorder();
     void printPostorder();
     void printInorder();
@@ -28,7 +28,7 @@ private:
     Position<E>* rootElem;
     int size(Position<E>*);
     void insert(Position<E>*, Position<E>*);
-    std::vector<int> search(E , Position<E>*);
+    void search(E , Position<E>*);
     void preOrder(Position<E>*);
     void postOrder(Position<E>*);
     void inOrder(Position<E>*);
@@ -118,28 +118,31 @@ void BinarySearchTree<E>::insert(E paraula,int linea,int posicio) {
 }
 
 template<class E>
-std::vector<int> BinarySearchTree<E>::search(E paraula, Position<E>* pos) {
+void BinarySearchTree<E>::search(E paraula, Position<E>* pos) {
     if (paraula == pos->getElement()) {//si la paraula es igual a la del parent 
-         return pos->getValors();
+        std::vector<int> vectorAux=vector<int>();
+        vectorAux=pos->getValors();
+        cout<<pos->getElement();
+        cout<<'[';
+        for(int i=0;i<pos->getValors().size();i++){
+            cout<<pos->getValors()[i]<<',';
+        }
+        cout<<']'<<endl;
     } else if (paraula < pos->getElement()) {//si la paraula es menor a la del parent
         if (pos->hasLeft()) {
             this->search(paraula, pos->left()); //recursiva al node esquerre
         }
-        else{
-            cout<<"no es troba la paraula";
-        }
+        
     } else if (paraula > pos->getElement()) {//si la paraula es major que la del parent
         if (pos->hasRight()) {
             this->search(paraula, pos->right()); //recursiva al node fill dret
         }
-        else{
-            cout<<"no es troba la paraula";
-        }   
+        
     }
 }
 template<class E>
-std::vector<int> BinarySearchTree<E>::search(E paraula){
-    return this->search(paraula,rootElem);
+void BinarySearchTree<E>::search(E paraula){
+     this->search(paraula,rootElem);
 }
 
 template<class E>

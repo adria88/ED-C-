@@ -15,7 +15,7 @@ public:
     virtual ~BSTWordFinder();
     void appendText(std::string);
     void insertWord(std::string,int,int);
-    std::vector<int> findOcurrences(std::string);
+    void findOcurrences(std::string);
     void viewIndex();
 private:
     BinarySearchTree<std::string> bt;

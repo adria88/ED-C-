@@ -58,7 +58,7 @@ void BSTWordFinder::insertWord(std::string paraula,int linea, int posicio) {
     bt.insert(paraula,linea,posicio);   
 }
 
-std::vector<int> BSTWordFinder::findOcurrences(std::string paraula) {
+void BSTWordFinder::findOcurrences(std::string paraula) {
     return bt.search(paraula);
     
 }
